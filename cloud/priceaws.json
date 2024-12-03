@@ -1,0 +1,58 @@
+{
+    "AWS": {
+        "services": {
+            "AmazonEC2": {
+                "instanceType": "t2.micro",
+                "pricePerHour": 0.0116
+            },
+            "AmazonS3": {
+                "storageType": "Standard",
+                "pricePerGB": 0.023
+            },
+            "AmazonRDS": {
+                "databaseType": "MySQL",
+                "pricePerHour": 0.017
+            },
+            "AmazonLambda": {
+                "memorySizeMB": 128,
+                "pricePerInvocation": 0.0000002,
+                "pricePerMs": 0.00001667
+            },
+            "AmazonDynamoDB": {
+                "readCapacityUnits": 5,
+                "writeCapacityUnits": 5,
+                "pricePerWCU": 0.00013,
+                "pricePerRCU": 0.00065
+            },
+            "AmazonCloudFront": {
+                "pricePerGB": 0.085
+            },
+            "AmazonElasticLoadBalancing": {
+                "loadbalancerType": "Application",
+                "pricePerGBProcessed": 0.008
+            },
+            "AmazonEBS": {
+                "volumeType": "gp2",
+                "pricePerGB": 0.10
+            },
+            "AmazonEKS": {
+                "KubernetesType": "eksctl",
+                "pricePerNode": 0.0116
+            },
+            "AmazonElasticNetworkInterface": {
+                "pricePerENI": 0.005,
+                "dataProcessing": {
+                    "pricePerGB": 0.01
+                }
+            },
+            "AmazonVPC": {
+                "vpcType": "custom",
+                "pricePerVPNConnection": 0.05
+            },
+            "AmazonRoute53": {
+                "dnsType": "Route53",
+                "pricePerDNSQuery": 0.40
+            }
+        }
+    }
+}
