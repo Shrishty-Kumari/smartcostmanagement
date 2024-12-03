@@ -1,0 +1,54 @@
+{
+    "GCP": {
+        "services": {
+            "ComputeEngine": {
+                "instanceType": "n1-standard-1",
+                "pricePerHour": 0.0475
+            },
+            "CloudStorage": {
+                "storageClass": "Standard",
+                "pricePerGB": 0.020
+            },
+            "CloudSQL": {
+                "databaseType": "MySQL",
+                "pricePerHour": 0.018
+            },
+            "KubernetesEngine": {
+                "KubernetesType": "GKE",
+                "pricePerNode": 0.0100
+            },
+            "CloudLoadBalancing": {
+                "loadbalancerType": "Application",
+                "pricePerGBProcessed": 0.008
+            },
+            "PersistentDisk": {
+                "diskType": "Standard",
+                "pricePerGB": 0.040
+            },
+            "VirtualPrivateCloud": {
+                "subnetType": "custom",
+                "pricePerVPNConnection": 0.05
+            },
+            "CloudFunction": {
+                "memorySizeMB": 128,
+                "pricePerInvocation": 0.0000004,
+                "pricePerMs": 0.000017
+            },
+            "CloudFirestore": {
+                "readOperations": 0.00006,
+                "writeOperations": 0.00015,
+                "storagePerGB": 0.026
+            },
+            "CloudRouter": {
+                "pricePerRouter": 0.05
+            },
+            "CloudInterconnect": {
+                "pricePerGCPInterconnect": 0.30
+            },
+            "CloudDNS": {
+                "dnsType": "GCP",
+                "pricePerDNSQuery": 0.40
+            }
+        }
+    }
+}

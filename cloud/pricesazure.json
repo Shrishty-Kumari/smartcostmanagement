@@ -1,0 +1,61 @@
+{
+    "Azure": {
+        "services": {
+            "VirtualMachines": {
+                "instanceType": "Standard_DS1_v2",
+                "pricePerHour": 0.096
+            },
+            "BlobStorage": {
+                "storageClass": "Hot",
+                "pricePerGB": 0.0184
+            },
+            "SQLDatabase": {
+                "databaseTier": "Standard",
+                "pricePerDTU": 0.008
+            },
+            "AzureKubernetesService": {
+                "KubernetesType": "AKS",
+                "pricePerNode": 0.011
+            },
+            "LoadBalancer": {
+                "loadbalancerType": "Application",
+                "pricePerGBProcessed": 0.008
+            },
+            "AzureFiles": {
+                "storageTier": "Premium",
+                "pricePerGB": 0.024
+            },
+            "ManagedDisks": {
+                "diskType": "Standard SSD",
+                "pricePerGB": 0.045
+            },
+            "VirtualNetwork": {
+                "pricePerSubnet": 0.00,
+                "pricePerVPNGateway": 0.05
+            },
+            "AzureFirewall": {
+                "pricePerFirewall": 1.00,
+                "dataProcessing": {
+                    "pricePerGB": 0.015
+                }
+            },
+            "AzureAppService": {
+                "pricePerHour": 0.013,
+                "pricePerGB": 0.008
+            },
+            "AzureDNS": {
+                "dnsType": "Azure",
+                "pricePerDNSQuery": 0.40
+            },
+            "ExpressRoute": {
+                "pricePerConnection": 0.30,
+                "dataProcessing": {
+                    "pricePerGB": 0.05
+                }
+            },
+            "AzureQueueStorage": {
+                "pricePer10kMessages": 0.00040
+            }
+        }
+    }
+}
