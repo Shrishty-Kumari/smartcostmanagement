@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Pricing Fetcher</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="background-radial-gradient">
+    <h1>Cloud Pricing Fetcher</h1>
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+    <div class="cloud cloud4"></div>
+    <div class="cloud cloud5"></div>
+    <div class="cloud cloud6"></div>
+    <div class="cloud cloud7"></div>
+    <div class="cloud cloud8"></div>
+    <div class="cloud cloud9"></div>
+    <div class="cloud cloud10"></div>
+    
+    <!-- <div class="star star1"></div> 
+    <div class="star star2"></div>
+    <div class="star star3"></div>
+    <div class="star star4"></div>
+    <div class="star star5"></div> -->
+
+    <!-- Cloud Provider Selection -->
+    <label for="providerSelect">Select Cloud Provider:</label>
+    <select id="providerSelect">
+        <option value="">--Select Provider--</option>
+        <option value="AWS">AWS</option>
+        <option value="Azure">Azure</option>
+        <option value="GCP">Google Cloud</option>
+    </select>
+    <!-- Service Type Selection -->
+    <div id="serviceTypeContainer" class="hidden">
+        <label for="serviceType">Select Service Type:</label>
+        <select id="serviceType">
+            <option value="">--Select Service Type--</option>
+            <option value="storage">Storage</option>
+            <option value="server">Server</option>
+            <option value="database">Database</option>
+            <option value="kubernetes">Kubernetes</option>
+            <option value="dns">DNS</option>
+            <option value="vpc">VPC</option>
+            <option value="LoadBalancer">LoadBalancer</option>
+            <option value="volume">Volume</option>
+        </select>
+    </div>
+
+    <!-- Dynamic Service Options based on Service Type -->
+    <div id="serviceOptionsContainer" class="hidden">
+        <!-- Storage Options -->
+        <div id="storageOptions" class="hidden">
+            <label for="storageService">Select Storage Service:</label>
+            <select id="storageService">
+                <option value="">--Select Storage Service--</option>
+                <option value="BlobStorage">Blob Storage</option>
+                <option value="AmazonS3">Amazon S3</option>
+                <option value="CloudStorage">Cloud Storage</option>
+            </select>
+        </div>
+
+        <!-- Volume Options -->
+        <div id="volume" class="hidden">
+            <label for="volume">Select Volume Service:</label>
+            <select id="volume">
+                <option value="">--Select Volume Service--</option>
+                <option value="ManagedDisks">Azure volume</option>
+                <option value="AmazonEBS">AmazonRoute volume</option>
+                <option value="PersistentDisk">GCP volume</option>
+            </select>
+        </div>
+
+        <!-- LoadBalancer Options -->
+        <div id="loadBalancerOptions" class="hidden">
+            <label for="loadBalancerService">Select LoadBalancer Service:</label>
+            <select id="loadBalancerService">
+                <option value="">--Select LoadBalancer Service--</option>
+                <option value="LoadBalancer">LoadBalancer</option>
+                <option value="AmazonElasticLoadBalancing">AmazonElasticLoadBalancing</option>
+                <option value="CloudLoadBalancing">CloudLoadBalancing</option>
+            </select>
+        </div>
+
+        <!-- DNS Options -->
+        <div id="dnsOptions" class="hidden">
+            <label for="dnsService">Select DNS Service:</label>
+            <select id="dnsService">
+                <option value="">--Select DNS Service--</option>
+                <option value="AzureDNS">AzureDNS</option>
+                <option value="AmazonRoute53">AmazonRoute53</option>
+                <option value="CloudDNS">CloudDNS</option>
+            </select>
+        </div>
+
+        <!-- VPC Options -->
+        <div id="vpcOptions" class="hidden">
+            <label for="vpcService">Select VPC Service:</label>
+            <select id="vpcService">
+                <option value="">--Select VPC Service--</option>
+                <option value="VirtualNetwork">VirtualNetwork</option>
+                <option value="AmazonVPC">AmazonVPC</option>
+                <option value="VirtualPrivateCloud">VirtualPrivateCloud</option>
+            </select>
+        </div>
+
+        <!-- Server Options -->
+        <div id="serverOptions" class="hidden">
+            <label for="serverService">Select Server Service:</label>
+            <select id="serverService">
+                <option value="">--Select Server Service--</option>
+                <option value="AmazonEC2">Amazon EC2</option>
+                <option value="VirtualMachine">Virtual Machine</option>
+                <option value="ComputeEngine">Compute Engine</option>
+            </select>
+        </div>
+
+        <!-- Database Options -->
+        <div id="databaseOptions" class="hidden">
+            <label for="databaseService">Select Database Service:</label>
+            <select id="databaseService">
+                <option value="">--Select Database Service--</option>
+                <option value="CloudSQL">Cloud SQL</option>
+                <option value="AmazonRDS">Amazon RDS</option>
+                <option value="SQLDatabase">SQL Database</option>
+            </select>
+        </div>
+        <!-- Kubernetes Options -->
+        <div id="kubernetesOptions" class="hidden">
+            <label for="kubernetesService">Select Kubernetes Service:</label>
+            <select id="kubernetesService">
+                <option value="">--Select Kubernetes Service--</option>
+                <option value="AzureKubernetesService">AKS</option>
+                <option value="AmazonEKS">EKS</option>
+                <option value="KubernetesEngine">GKE</option>
+            </select>
+        </div>        
+
+    </div>
+
+    <!-- Selected Service and Pricing Fetch Button -->
+     <!--<h3>Selected Service</h3>-->
+    <p id="selectedService"></p>
+    <button id="fetchPricingBtn" class="hidden">Get Pricing</button>
+
+    <h3>Pricing Details</h3>
+    <pre id="pricingOutput"></pre>
+    
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    background: linear-gradient(to right, #80bfff, #0073e6);
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    block-size: 100vh; /* Full height */
+    overflow: hidden;
+    position: relative;
+    padding: 20px; /* Add padding to the body */
+    flex-direction: column; /* Allow vertical stacking */
+}
+label, select {
+    display: block;
+    margin-block-start: 10px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    color: #f2f6f8;
+    margin-block-end: 30px; /* Spacing below the heading */
+    font-weight: bold;
+}
+
+@keyframes move {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0); /* End back at the starting position */
+      }
+}
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255);
+    inline-size: 40px;
+    block-size: 15px;
+    border-radius: 20px;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.7);
+    animation: move 3s infinite;
+  }
+
+  .cloud:after {
+    content: '';
+    background: rgba(255, 255, 255);
+    position: absolute;
+    inline-size: 15px;
+    block-size: 15px;
+    border-radius: 50%;
+    inset-block-start: -7px;
+    inset-inline-start: 5px;
+  }
+
+  .cloud:before {
+    content: '';
+    background-color: rgba(255, 255, 255);
+    /* background: rgba(255, 255, 255); */
+    position: absolute;
+    inline-size: 25px;
+    block-size: 25px;
+    border-radius: 50%;
+    inset-block-start: -15px;
+    inset-inline-end: 4px;
+  }
+
+
+  /* Position and animate multiple clouds */
+  .cloud1 { 
+    inset-block-start: 10%;
+    inset-inline-start: 5%;
+    animation-duration: 4s;
+  }
+  .cloud2 { 
+    inset-block-start: 10%;
+    inset-inline-start: 95%;
+    animation-duration: 5s;
+  }
+  .cloud3 { 
+    inset-block-start: 50%;
+    inset-inline-start: 20%;
+    animation-duration: 6s;
+  }
+  .cloud4 { 
+    inset-block-start: 20%;
+    inset-inline-start: 65%;
+    animation-duration: 7s;
+  }
+  .cloud5 { 
+    inset-block-start: 90%;
+    inset-inline-start: 35%;
+    animation-duration: 8s;
+  }
+  .cloud6 { 
+    inset-block-start: 20%;
+    inset-inline-start: 35%;
+    animation-duration: 9s;
+  }
+  .cloud7 { 
+    inset-block-start: 50%;
+    inset-inline-start: 80%;
+    animation-duration: 3s;
+  }
+  .cloud8 { 
+    inset-block-start: 90%;
+    inset-inline-start: 63%;
+    animation-duration: 7s;
+  }
+  .cloud9 { 
+    inset-block-start: 90%;
+    inset-inline-start: 95%;
+    animation-duration: 3s;
+  }
+  .cloud10 { 
+    inset-block-start: 90%;
+    inset-inline-start: 5%;
+    animation-duration: 4s;
+  }
+/* /* Star animations */
+/* .star {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: float 4s infinite;
+}
+
+.star1 { inline-size: 40px; block-size: 40px; inset-block-start: 40%; inset-inline-start: 10%; }
+.star2 { inline-size: 60px; block-size: 60px; inset-block-start: 20%; inset-inline-start: 60%; }
+.star3 { inline-size: 50px; block-size: 50px; inset-block-start: 70%; inset-inline-start: 30%; }
+.star4 { inline-size: 80px; block-size: 80px; inset-block-start: 10%; inset-inline-start: 40%; }
+.star5 { inline-size: 70px; block-size: 70px; inset-block-start: 80%; inset-inline-start: 90%; }   */
+
+/* @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}  */
+label[for="providerSelect"] {
+    margin-inline-end: 1px; /* Adjust this value as needed */
+}
+/* Form styles */
+label {
+    font-size: 20px;
+    color: #f4f7f9;
+    margin-block-end: 4px; /* Adjust margin for spacing */
+    font-weight: bold;
+}
+
+input {
+    padding: 14px;
+    border: 1px solid #f5f7f8;
+    border-radius: 8px;
+    margin-block-end: 15px; /* Adjust margin for spacing */
+    font-size: 14px;
+    inline-size: 30%;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #007bff;
+}
+
+/* Button styles */
+.button-container {
+    display: flex; /* Use flex to arrange buttons */
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center align buttons */
+    inline-size: 20%; /* Full width to allow space */
+    margin-block-end: 30px; /* Space below the button container */
+}
+
+button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #2b95fe;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    inline-size: 20%; /* Full width for buttons */
+    margin-block-end: 20px; /* Space between buttons */
+}
+
+
+
+button:hover {
+    background-color: #007bff;
+}
+
+/* Pricing output styles */
+h3 {
+    margin-block-start: 30px; /* Spacing above the heading */
+    font-size: 24px; /* Adjust heading size */
+    color: #ffffff; /* Text color for headings */
+}
+pre {
+    background-color: #ffffff;
+    border-radius: 8px;
+    
+    margin-block-start: 10px; /* Spacing above preformatted text */
+}
+#pricingOutput {
+    inline-size: 300px;     /* Adjust width as needed */
+    block-size: 60px;    /* Adjust height as needed */
+    padding: 10px;    /* Add padding for better readability */
+    font-size: 14px;  /* Increase font size if needed */
+    border: 1px solid #ccc; /* Optional: Add a border */
+    overflow: auto;   /* Optional: Add scrollbars if content overflows */
+}
+#selectedService {
+    margin-block-start: 20px;  /* Space above */
+    margin-block-end: 20px;  /* Space below */
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+#pricingForm {
+    inline-size: 100%; /* Full width for the form */
+    max-inline-size: 600px; /* Max width for better appearance */
+    margin: 0 auto; /* Center align the form */
+    background: rgba(171, 212, 251, 0.9); /* Slightly transparent background */
+    padding: 20px; /* Add padding around form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
