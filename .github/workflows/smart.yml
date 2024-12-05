@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2 
       
-      - name: Deploy in EC2
+      - name: Deploy on EC2
         env: 
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           HOSTNAME: ${{ secrets.AWS_HOST }}
