@@ -19,6 +19,6 @@ jobs:
           echo "$PRIVATE_KEY" > private_key && chmod 400 private_key
           echo $PRIVATE_KEY
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-            cd /var/www/html/shritest &&
+            cd /var/www/html/smartcostmanagement &&
             git config --global --add safe.directory /var/www/html/smartcostmanagement &&
             git pull origin main '
