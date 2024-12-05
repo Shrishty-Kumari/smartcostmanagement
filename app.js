@@ -111,7 +111,7 @@ fetchPricingBtn.onclick = async function () {
 };
 
 // Fetch AWS pricing
-async function fetchAWSPricing(_serviceName) {
+async function fetchAWSPricing(serviceName) {
     const awsPricingURL = `cloud/priceaws.json`;
 
     try {
@@ -121,14 +121,14 @@ async function fetchAWSPricing(_serviceName) {
 
         const awsServices = data.AWS.services;
 
-        let ec2Price = _serviceName === 'AmazonEC2' ? awsServices.AmazonEC2.pricePerHour || 'N/A' : null;
-        let s3Price = _serviceName === 'AmazonS3' ? awsServices.AmazonS3.pricePerGB || 'N/A' : null;
-        let rdsPrice = _serviceName === 'AmazonRDS' ? awsServices.AmazonRDS.pricePerHour || 'N/A' : null;
-        let albPrice = _serviceName === 'AmazonElasticLoadBalancing' ? awsServices.AmazonElasticLoadBalancing.pricePerGBProcessed || 'N/A' : null;
-        let r53Price = _serviceName === 'AmazonRoute53' ? awsServices.AmazonRoute53.DNSQueryPrice || 'N/A' : null;
-        let avpcPrice = _serviceName === 'AmazonVPC' ? awsServices.AmazonVPC.pricePerVPNConnection || 'N/A' : null;
-        let ebsPrice = _serviceName === 'AmazonEBS' ? awsServices.AmazonEBS.pricePerGB || 'N/A' : null;
-        let eksPrice = _serviceName === 'AmazonEKS' ? awsServices.AmazonEKS.pricePerNode || 'N/A' : null;
+        let ec2Price = serviceName === 'AmazonEC2' ? awsServices.AmazonEC2.pricePerHour || 'N/A' : null;
+        let s3Price = serviceName === 'AmazonS3' ? awsServices.AmazonS3.pricePerGB || 'N/A' : null;
+        let rdsPrice = serviceName === 'AmazonRDS' ? awsServices.AmazonRDS.pricePerHour || 'N/A' : null;
+        let albPrice = serviceName === 'AmazonElasticLoadBalancing' ? awsServices.AmazonElasticLoadBalancing.pricePerGBProcessed || 'N/A' : null;
+        let r53Price = serviceName === 'AmazonRoute53' ? awsServices.AmazonRoute53.DNSQueryPrice || 'N/A' : null;
+        let avpcPrice = serviceName === 'AmazonVPC' ? awsServices.AmazonVPC.pricePerVPNConnection || 'N/A' : null;
+        let ebsPrice = serviceName === 'AmazonEBS' ? awsServices.AmazonEBS.pricePerGB || 'N/A' : null;
+        let eksPrice = serviceName === 'AmazonEKS' ? awsServices.AmazonEKS.pricePerNode || 'N/A' : null;
         updatePricingOutput({
             provider: 'AWS',
             ec2Price,
@@ -139,7 +139,7 @@ async function fetchAWSPricing(_serviceName) {
             avpcPrice,
             ebsPrice,
             eksPrice,
-            _serviceName
+            serviceName
         });
     } catch (error) {
         console.error('Error fetching AWS pricing:', error);
@@ -147,7 +147,7 @@ async function fetchAWSPricing(_serviceName) {
 }
 
 // Fetch Azure pricing
-async function fetchAzurePricing(_serviceName) {
+async function fetchAzurePricing(serviceName) {
     const azurePricingURL = `cloud/pricesazure.json`;
 
     try {
@@ -171,14 +171,14 @@ async function fetchAzurePricing(_serviceName) {
         const dataNetwork = await responseNetwork.json();
         const dataAzureKubernetes = await responseAzureKubernetes.json();
 
-        let vmPrice = _serviceName === 'Virtual Machines' ? dataVM.Items[0]?.retailPrice || 'N/A' : null;
-        let blobPrice = _serviceName === 'Storage' ? dataBlob.Items[0]?.retailPrice || 'N/A' : null;
-        let sqlPrice = _serviceName === 'SQL Database' ? dataSQL.Items[0]?.retailPrice || 'N/A' : null;
-        let loadPrice = _serviceName === 'LoadBalancer' ? dataLoad.Items[0]?.retailPrice || 'N/A' : null;
-        let dnsPrice = _serviceName === 'AzureDNS' ? dataDNS.Items[0]?.retailPrice || 'N/A' : null;
-        let ebsPrice = _serviceName === 'Azure volume' ? dataDisks.Items[0]?.retailPrice || 'N/A' : null;
-        let networkPrice = _serviceName === 'VirtualNetwork' ? dataNetwork.Items[0]?.retailPrice || 'N/A' : null;
-        let aksPrice = _serviceName === 'AKS' ? dataAzureKubernetes.Items[0]?.retailPrice || 'N/A' : null;
+        let vmPrice = serviceName === 'Virtual Machines' ? dataVM.Items[0]?.retailPrice || 'N/A' : null;
+        let blobPrice = serviceName === 'Storage' ? dataBlob.Items[0]?.retailPrice || 'N/A' : null;
+        let sqlPrice = serviceName === 'SQL Database' ? dataSQL.Items[0]?.retailPrice || 'N/A' : null;
+        let loadPrice = serviceName === 'LoadBalancer' ? dataLoad.Items[0]?.retailPrice || 'N/A' : null;
+        let dnsPrice = serviceName === 'AzureDNS' ? dataDNS.Items[0]?.retailPrice || 'N/A' : null;
+        let ebsPrice = serviceName === 'Azure volume' ? dataDisks.Items[0]?.retailPrice || 'N/A' : null;
+        let networkPrice = serviceName === 'VirtualNetwork' ? dataNetwork.Items[0]?.retailPrice || 'N/A' : null;
+        let aksPrice = serviceName === 'AKS' ? dataAzureKubernetes.Items[0]?.retailPrice || 'N/A' : null;
 
         updatePricingOutput({
             provider: 'Azure',
@@ -190,7 +190,7 @@ async function fetchAzurePricing(_serviceName) {
             networkPrice,
             ebsPrice,
             aksPrice,
-            _serviceName
+            serviceName
         });
     } catch (error) {
         console.error('Error fetching Azure pricing:', error);
@@ -198,7 +198,7 @@ async function fetchAzurePricing(_serviceName) {
 }
 
 // Fetch Google Cloud pricing
-async function fetchGCPricing(_serviceName) {
+async function fetchGCPricing(serviceName) {
     const gcpPricingURL = 'cloud/pricelistgcp.json';
 
     try {
@@ -208,14 +208,14 @@ async function fetchGCPricing(_serviceName) {
 
         const gcpServices = data.GCP.services;
 
-        let computePrice = _serviceName === 'Compute Engine' ? gcpServices.ComputeEngine.pricePerHour || 'N/A' : null;
-        let storagePrice = _serviceName === 'Cloud Storage' ? gcpServices.CloudStorage.pricePerGB || 'N/A' : null;
-        let sqlPrice = _serviceName === 'Cloud SQL' ? gcpServices.CloudSQL.pricePerHour || 'N/A' : null;
-        let gvolumePrice = _serviceName === 'GCP volume' ? gcpServices.PersistentDisk.pricePerGB || 'N/A' : null;
-        let glbPrice = _serviceName === 'CloudLoadBalancing' ? gcpServices.CloudLoadBalancing.pricePerGBProcessed || 'N/A' : null;
-        let gdnsPrice = _serviceName === 'CloudDNS' ? gcpServices.CloudDNS.DNSQueryPrice || 'N/A' : null;
-        let gvpPrice = _serviceName === 'VirtualPrivateCloud' ? gcpServices.VirtualPrivateCloud.pricePerVPNConnection || 'N/A' : null;
-        let gkePrice = _serviceName === 'GKE' ? gcpServices.KubernetesEngine.pricePerNode || 'N/A' : null;
+        let computePrice = serviceName === 'Compute Engine' ? gcpServices.ComputeEngine.pricePerHour || 'N/A' : null;
+        let storagePrice = serviceName === 'Cloud Storage' ? gcpServices.CloudStorage.pricePerGB || 'N/A' : null;
+        let sqlPrice = serviceName === 'Cloud SQL' ? gcpServices.CloudSQL.pricePerHour || 'N/A' : null;
+        let gvolumePrice = serviceName === 'GCP volume' ? gcpServices.PersistentDisk.pricePerGB || 'N/A' : null;
+        let glbPrice = serviceName === 'CloudLoadBalancing' ? gcpServices.CloudLoadBalancing.pricePerGBProcessed || 'N/A' : null;
+        let gdnsPrice = serviceName === 'CloudDNS' ? gcpServices.CloudDNS.DNSQueryPrice || 'N/A' : null;
+        let gvpPrice = serviceName === 'VirtualPrivateCloud' ? gcpServices.VirtualPrivateCloud.pricePerVPNConnection || 'N/A' : null;
+        let gkePrice = serviceName === 'GKE' ? gcpServices.KubernetesEngine.pricePerNode || 'N/A' : null;
 
         updatePricingOutput({
             provider: 'Google Cloud',
@@ -227,7 +227,7 @@ async function fetchGCPricing(_serviceName) {
             gdnsPrice,
             glbPrice,
             gvolumePrice,
-            _serviceName
+            serviceName
         });
     } catch (error) {
         console.error('Error fetching Google Cloud pricing:', error);
@@ -260,4 +260,7 @@ function updatePricingOutput({ provider, ec2Price, s3Price, rdsPrice, vmPrice, b
     if (gdnsPrice) outputElement.innerHTML += `<p>DNS: ${gdnsPrice}</p>`;
     if (gvolumePrice) outputElement.innerHTML += `<p>Volume: ${gvolumePrice}</p>`;
     if (glbPrice) outputElement.innerHTML += `<p>LoadBalancer: ${glbPrice}</p>`;
+    if (outputElement.innerHTML === `<p><strong>${provider} Pricing for ${serviceName}:</strong></p>`) {
+        outputElement.innerHTML += `<p>This service is not related to this cloud provider.</p>`;
+    }
 }
